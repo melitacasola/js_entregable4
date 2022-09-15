@@ -12,13 +12,14 @@
   
 html {
     font-size: 62.5%;
-    background-color: #593C39; 
+    background-color: #95cbdb; 
 }
   
 body {
     font-family: 'Biryani';
-    background-color: #b87a63;
-    color: #f8deae; 
+    background-color: #f7f746;
+    /* background-color: #95cbdb; */
+    color: black; 
 }
   
 a {
@@ -37,9 +38,12 @@ ul {
     list-style-type: none;
     margin-left: 15px;
 }
-
+h4{
+    font-size: 20px;
+    text-align: center;
+}
 .header {
-    background-color: #593C39;
+    background-color: #525424;
     padding: 30px 20px;
     display: flex;
     height: 10rem;
@@ -73,7 +77,7 @@ ul {
     transform: scale(0.9); 
 }
 .menu__nav li a {
-    color: #f8deae;
+    color: #aeb1b6;
     border-bottom: 2px;
     font-weight: bold;
     transition: color 0.3s; 
@@ -83,7 +87,7 @@ ul {
 }
 .menu__nav-title {
     font-family: 'Kalam';
-    color: #f8deae;
+    color: #95cbdb;
     font-size: 4rem;
     transition: color 0.3s;
     font-weight: bold; 
@@ -116,14 +120,14 @@ ul {
     height: 30vh;
     background-size: cover;
     background-attachment: fixed;
-    color: #593C39; 
+    color: #525424; 
 }
 .titulo h1 {
     font-family: 'Kalam';
     font-size: 6rem;
     letter-spacing: 15px;
     margin-left: 1.5rem;
-    text-shadow: 0.1em 0.1em 0.2em black;
+    /* text-shadow: 0.1em 0.1em 0.2em black; */
     font-weight: bolder; 
 }
 .titulo h2 {
@@ -133,11 +137,20 @@ ul {
     letter-spacing: 5px;
     margin-left: 3.5rem;
     justify-content: center;
-    text-shadow: 0.1em 0.1em 0.2em black; 
+    /* text-shadow: 0.1em 0.1em 0.2em black;  */
 }
-
+#cajaBuscador{
+    display: flex;
+    padding: 15px;
+    margin: 35px;
+    flex-direction: row;
+    justify-content: right;
+    position: fixed;
+    right: 0;
+    position: absolute;
+}
 .card{
-    background-color: #f8deae;
+    background-color:#bae1ec;
     border-radius: 20px;
     color: #593C39;
     padding: 0.5rem;
@@ -151,12 +164,13 @@ ul {
     transform: translateY(15px);
     z-index: 0; 
 }
+/* 
 .card__title {
     margin: 5px;
     text-align: center;
     font-weight: bold;
     font-size: 1.5rem; 
-}
+} */
 .card img{
     width: 100%;
     margin-bottom: 20px;
@@ -166,12 +180,12 @@ ul {
     margin-bottom: 20px;
     z-index: 0;
 }
-.card__description {
+/* .card__description {
     padding: 5px;
     margin: 20px; 
 }
 .card__link {
-    background-color: #593C39;
+    background-color: #525424;
     color: white;
     padding: 5px;
     border-radius: 20px;
@@ -189,7 +203,7 @@ ul {
 }
 .card__link:hover {
     color: #aeb1b6; 
-}
+} */
 
   
 .courses {
@@ -248,27 +262,25 @@ ul {
     width: 350px;
     margin-right: 50px;
     justify-content: center; 
-}
-.formulario__form div {
-    margin-left: 20px;
-      
-    text-align: justify;
-    inline-size: 1.66; 
-}
-.formulario__form {
-    background-color: #f8deae;
+    background-color: #bae1ec;
     border-radius: 20px;
-    color: #593C39;
+    color: #525424;
     padding: 0.5rem;
     margin: 1rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     z-index: 0;
-    transition: transform 0.6s; 
+    transition: transform 0.6s;
+
+}
+.formulario__form div {
+    margin-left: 20px;
+    text-align: justify;
+    inline-size: 1.66; 
 }
 
 
 .footer {
-    background-color: #593C39;
+    background-color: #525424;
     color: #f8deae;
     padding: 30px 20px;
     margin-top: 20px;
@@ -278,15 +290,17 @@ ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
-    background-color: #593C39; 
+    background-color: #525424; 
 }
 .footer__grid h3 {
-    text-align: center; }
+    text-align: center;
+    
+}
 .footer__rrss {
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    background-color: #593C39;
+    background-color:#525424;
 }
 .footer__rrss a {
     color: #f8deae;
@@ -332,4 +346,7 @@ ul {
     gap: 5px;
     text-align: center; 
 }
+.letrita {
+    font-size: 10px;
+};
   
