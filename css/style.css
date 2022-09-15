@@ -1,0 +1,335 @@
+@font-face {
+    font-family: 'Kalam';
+    src: url("../assets/font/Kalam-Regular.ttf"); }
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none; 
+}
+  
+html {
+    font-size: 62.5%;
+    background-color: #593C39; 
+}
+  
+body {
+    font-family: 'Biryani';
+    background-color: #b87a63;
+    color: #f8deae; 
+}
+  
+a {
+    text-decoration: none;
+    font-size: 18px; 
+}
+  
+p {
+    line-height: 1.5;
+    text-align: justify;
+    font-size: 16px;
+    margin: 20px 15px; 
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 15px;
+}
+
+.header {
+    background-color: #593C39;
+    padding: 30px 20px;
+    display: flex;
+    height: 10rem;
+    top: 0;
+    width: 100%;
+    position: sticky;
+    z-index: 4; 
+}
+.header__menu {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    width: 85vw;
+    transition: transform 0.3s; 
+}
+.header__menu a:active {
+    transform: scale(0.9); 
+}
+  
+.menu__nav {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.menu__nav li {
+    margin: 20px;
+    transition: transform 0.3s; 
+}
+.menu__nav li:active {
+    transform: scale(0.9); 
+}
+.menu__nav li a {
+    color: #f8deae;
+    border-bottom: 2px;
+    font-weight: bold;
+    transition: color 0.3s; 
+}
+.menu__nav li a:hover {
+    color: #aeb1b6; 
+}
+.menu__nav-title {
+    font-family: 'Kalam';
+    color: #f8deae;
+    font-size: 4rem;
+    transition: color 0.3s;
+    font-weight: bold; 
+}
+.menu__nav-title:hover {
+    color: #aeb1b6; 
+}
+.menu__nav-title:hover::after {
+    content: 'inicio';
+    margin-left: 8px;
+    color: #aeb1b6;
+    font-size: 2rem; 
+}
+.menu__nav-toggle {
+    color: #f8deae;
+    background: none;
+    border: none;
+    font-size: 40px;
+    padding: 0 20px;
+    display: none;
+    cursor: pointer; 
+}
+      
+.container {
+    max-width: 120vw;
+    margin: 0 auto;
+}
+      
+.titulo {
+    height: 30vh;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #593C39; 
+}
+.titulo h1 {
+    font-family: 'Kalam';
+    font-size: 6rem;
+    letter-spacing: 15px;
+    margin-left: 1.5rem;
+    text-shadow: 0.1em 0.1em 0.2em black;
+    font-weight: bolder; 
+}
+.titulo h2 {
+    font-family: 'Kalam';
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-left: 3.5rem;
+    justify-content: center;
+    text-shadow: 0.1em 0.1em 0.2em black; 
+}
+
+.card{
+    background-color: #f8deae;
+    border-radius: 20px;
+    color: #593C39;
+    padding: 0.5rem;
+    margin: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    z-index: 0;
+    transition: transform 0.6s; 
+    
+}
+.card:hover{
+    transform: translateY(15px);
+    z-index: 0; 
+}
+.card__title {
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem; 
+}
+.card img{
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    object-fit: cover;
+    height: 350px;
+    margin-bottom: 20px;
+    z-index: 0;
+}
+.card__description {
+    padding: 5px;
+    margin: 20px; 
+}
+.card__link {
+    background-color: #593C39;
+    color: white;
+    padding: 5px;
+    border-radius: 20px;
+    width: 60%;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    transition: transform color 0.3s;
+    align-self: center;
+
+}
+
+.card__link:active {
+    transform: scale(0.9); 
+}
+.card__link:hover {
+    color: #aeb1b6; 
+}
+
+  
+.courses {
+    margin-top: 35px;
+    margin-bottom: 35px; 
+}
+.courses__grid, .courses__grid1, .contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 5fr);
+    gap: 5px; 
+}
+.courses__grid1 {
+    grid-template-columns: repeat(3, 5fr);
+    justify-content: space-around; 
+}
+.courses__titulo {
+    font-family: 'Kalam';
+    src: url("../font/Kalam-Bold.ttf");
+    font-size: 2.5rem;
+    height: 3rem;
+    margin-top: 30px;
+    padding-left: 3rem; 
+}
+  
+.pago {
+    padding: 1rem;
+    font-size: 18px;
+    margin: 20px 10px; }
+.pago ul li {
+    margin-left: 30px;
+    list-style-type: square;
+}
+  
+.posicion {
+    position: relative;
+    width: 100px;
+    height: 100px; 
+}
+  
+.wsp {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    position: fixed; 
+}
+  
+.formulario {
+    margin-top: 35px;
+    margin-bottom: 35px; 
+    
+}
+.formulario__form {
+    font-size: 13px;
+    margin-top: 65px;
+    height: 350px;
+    width: 350px;
+    margin-right: 50px;
+    justify-content: center; 
+}
+.formulario__form div {
+    margin-left: 20px;
+      
+    text-align: justify;
+    inline-size: 1.66; 
+}
+.formulario__form {
+    background-color: #f8deae;
+    border-radius: 20px;
+    color: #593C39;
+    padding: 0.5rem;
+    margin: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    z-index: 0;
+    transition: transform 0.6s; 
+}
+
+
+.footer {
+    background-color: #593C39;
+    color: #f8deae;
+    padding: 30px 20px;
+    margin-top: 20px;
+    height: 80px; 
+}
+.footer__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    background-color: #593C39; 
+}
+.footer__grid h3 {
+    text-align: center; }
+.footer__rrss {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    background-color: #593C39;
+}
+.footer__rrss a {
+    color: #f8deae;
+    transition: color 0.3s; }
+.footer__rrss a:hover {
+    color: #aeb1b6; }
+.footer__rrss .link-facebook {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #2279e4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    text-align: center; 
+}
+.footer__rrss .link-ig {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #c92d8f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    text-align: center; 
+}
+.footer__rrss .link-tw {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #00acee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    text-align: center; 
+}
+  
