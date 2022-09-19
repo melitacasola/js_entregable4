@@ -31,116 +31,16 @@
             <h1>BANANA SPRINT!</h1>
             <h2>Indumentaria de Ciclismo</h2>
         </section>
-        <section class="container">
-
-          <div class="col m8 s4 m7" id="contenedor">
-            <div class="row">
-              <div class="col m12 s12">
-                <i class="material-icons">search</i>
-                <div class="input-field inline">
-                  <input id="search" type="search" class="validate">
-                  <label for="search">Buscar</label>
-                </div>
-                <div class="col m12 s12">
-                  <span>
-                    <label>
-                      <input class="with-gap" name="group" type="radio" value='nombre' checked/>
-                      <span>Nombre</span>
-                    </label>
-                    <label>
-                      <input class="with-gap" name="group" type="radio" value='detalle'/>
-                      <span>Detalle</span>
-                    </label>
-                    <label>
-                      <input class="with-gap" 
-                      name="group" type="radio"value='Precio' />
-                      <span>Precio</span>
-                    </label>
-                    <label>
-                      <input class="with-gap" 
-                      name="group" type="radio" value='ID'/>
-                      <span>ID</span>
-                    </label>
-                  </span>
-                </div>
-
-              </div>
-            </div>
-            <table class="responsive-table striped" id="tabla">
-              <thead>
-                <tr>
-                    <th>Nombre //</th>
-                    <th>Detalle //</th>
-                    <th>ID //</th>
-                    <th>Precio //</th>
-                    <th></th>
-                </tr>
-              </thead>
-      
-              <tbody id="table-body">
-                
-              </tbody>
-            </table>
-      
+          <div class="container m-3">
+            <div id="contenedor">
+            </div> 
           </div>
-        </div>
-        </section>
-        
-      
+
         <section class="courses container">
             <h3 class="courses__titulo">NUESTROS PRODUCTOS</h3>
-            <div class="courses__grid1">
-                <ul id="lista" >
-
-                </ul>
-                <!-- <article class="card">
-                    
-                    <img src="./assets/jersey_grafity.jpeg" alt="jersey_grafity" />
-                    
-                    <h4 class="card__title"> JERSEY GRAFITY </h4>
-                    <p class="card__description">Jersey nuevo modelo Diseño Grafity - unisex - talles del XXS al XXL</p>
-                    <a class="card__link" href="">$7800</a>
-                </article>
-                <article class="card">
-                    <img src="./assets/jersey_pro.jpeg" alt="jersey_pro" />
-                    <h4 class="card__title"> JERSEY PRO </h4>
-                    <p class="card__description">Jersey unisex modelo Argentina - talles S al XL</p>
-                    <a class="card__link" href="">$7800</a>
-                </article>
-
-                <article class="card">            
-                    <img src="./assets/jersey_yellow.jpeg" alt="jersey_yellow" />
-                    <h4 class="card__title"> JERSEY YELLOW</h4>
-                    <p class="card__description">Jersey unisex modelo color amarillo - talles XS al XL</p>
-                    <a class="card__link" href="">$7800</a>
-                </article>
-                <article class="card">
-                    
-                    <img src="./assets/total_black.jpeg" alt="total_black" />
-                    
-                    <h4 class="card__title"> EQUIPO TOTAL BLACK </h4>
-                    <p class="card__description">Jersey total black y calza con badana (M y F) -  Talles: S AL XL</p>
-                    <a class="card__link" href="">$14000</a>
-                </article>
-                <article class="card">
-                    
-                    <img src="./assets/cascos.jpeg" alt="casco" />
-                    
-                    <h4 class="card__title"> CASCO SBK </h4>
-                    <p class="card__description">casco colores: Blanco, Negro, Rojo, Azul - Talles: S AL XL</p>
-                    <a class="card__link" href="">$ 6500</a>
-                </article>
-
-                <article class="card">
-                    
-                    <img src="./assets/medias_bike.jpeg" alt="medias" />
-                    
-                    <h4 class="card__title"> MEDIAS DE CICLISMO </h4>
-                    <p class="card__description">Medias de ciclismo, GO-Bike talles del 36 al 42 Fibras de alto rendimiento deportivo diseñadas para transportar la humedad y mantener seco el pie.
-                        Ajuste perfecto que brinda mayor comodidad.</p>
-                    <a class="card__link" href="">$1100</a>
-                </article> -->
-            </div>
+            <div class="courses__grid1"></div>
+            <div class="carrito"></div>
+            
        
         </section>
 
@@ -162,37 +62,14 @@
             <div class="formulario">
                 <h2>INSCRIPCIONES - info</h2>
                 <form class="formulario__form" action="">
-                    <input type="text" placeholder="Nombre" />
+                    <input type="text" placeholder="Nombre..." />
                     <input type="number" placeholder="cel..." />
                     <input type="email" placeholder="correo" />
                     <textarea name="consulta" id="consulta" cols="35" rows="8.5" placeholder="Consulta..."></textarea>
                     <input type="submit" value="Enviar" />
-                  <!-- <div>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre..."/>
-                  </div>
-                  <div>
-                    <label for="cel">telefono de contacto:</label>
-                    <input type="number" id="cel" name="cel" placeholder="+549..."/>
-                  </div>
-                  <div>
-                    <label class="formulario__form--mod" for="correo">Correo electronico:</label>
-                    <input type="email" id="correo" name="correo" placeholder="Email"/>
-                  </div>
-                  <div>
-                    <label for="consulta">Ingrese un mensaje:</label>
-                  </div>
-                  <div> 
-                    <textarea name="consulta" id="consulta" cols="35" rows="8.5" placeholder="Consulta..."></textarea>
-                  </div>
-                  <div><button type="submit">Enviar</button>
                     <button type="reset">Limpar</button>
                     <input type="checkbox" id="newsletter" />
                     <label for="newsletter">Suscribite a nuestras novedades</label>
-                  </div>
-                  <div>
-                    
-                  </div> -->
                 </form>
             </div> 
         </section>
@@ -220,7 +97,7 @@
 
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="./js/main.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./js/main1.js"></script> 
 </body>
 </html>

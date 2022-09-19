@@ -18,7 +18,6 @@ html {
 body {
     font-family: 'Biryani';
     background-color: #f7f746;
-    /* background-color: #95cbdb; */
     color: black; 
 }
   
@@ -139,16 +138,28 @@ h4{
     justify-content: center;
     /* text-shadow: 0.1em 0.1em 0.2em black;  */
 }
-#cajaBuscador{
-    display: flex;
-    padding: 15px;
-    margin: 35px;
-    flex-direction: row;
-    justify-content: right;
-    position: fixed;
-    right: 0;
-    position: absolute;
+.busqueda{
+    margin: 15px;
+    padding: 5px;
 }
+.btnbuscar{
+    font-size: 16px;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+#ingreso{
+    font-size: 15px;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 10px;
+}
+#resultado li{
+    font-size: 18px;
+}
+
 .card{
     background-color:#bae1ec;
     border-radius: 20px;
@@ -158,19 +169,15 @@ h4{
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     z-index: 0;
     transition: transform 0.6s; 
-    
 }
 .card:hover{
     transform: translateY(15px);
     z-index: 0; 
 }
-/* 
-.card__title {
-    margin: 5px;
-    text-align: center;
+.card__titulo{
+    font-size: 20px;
     font-weight: bold;
-    font-size: 1.5rem; 
-} */
+}
 .card img{
     width: 100%;
     margin-bottom: 20px;
@@ -180,11 +187,16 @@ h4{
     margin-bottom: 20px;
     z-index: 0;
 }
-/* .card__description {
-    padding: 5px;
-    margin: 20px; 
+.card__detalle{
+    font-size: 18px;
+    text-align: center;
 }
-.card__link {
+.card__precio{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+.btnCarrito {
     background-color: #525424;
     color: white;
     padding: 5px;
@@ -197,27 +209,22 @@ h4{
     align-self: center;
 
 }
-
-.card__link:active {
+.btnCarrito:active {
     transform: scale(0.9); 
 }
-.card__link:hover {
+.btnCarrito:hover {
     color: #aeb1b6; 
-} */
-
+} 
   
 .courses {
     margin-top: 35px;
     margin-bottom: 35px; 
 }
-.courses__grid, .courses__grid1, .contenedor {
+.courses__grid1{
     display: grid;
     grid-template-columns: repeat(3, 5fr);
-    gap: 5px; 
-}
-.courses__grid1 {
-    grid-template-columns: repeat(3, 5fr);
-    justify-content: space-around; 
+    justify-content: space-around;
+    align-content: center;
 }
 .courses__titulo {
     font-family: 'Kalam';
@@ -261,7 +268,7 @@ h4{
     height: 350px;
     width: 350px;
     margin-right: 50px;
-    justify-content: center; 
+    justify-content: space-around;
     background-color: #bae1ec;
     border-radius: 20px;
     color: #525424;
@@ -272,8 +279,8 @@ h4{
     transition: transform 0.6s;
 
 }
-.formulario__form div {
-    margin-left: 20px;
+.formulario__form input {
+    margin: 5px;
     text-align: justify;
     inline-size: 1.66; 
 }
