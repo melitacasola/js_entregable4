@@ -21,6 +21,7 @@ const productos = [
 
 const containerDiv= document.querySelector('.courses__grid1');
 const search = document.querySelector("#contenedor");
+/*
 for (const prod of productos) {
   let article = document.createElement('article')
   article.innerHTML =`<article class="card"> 
@@ -33,6 +34,7 @@ for (const prod of productos) {
   `    
   containerDiv.append(article);
 }
+*/
 
 function buscador(){
       search.innerHTML += `<div class="busqueda"> 
@@ -44,6 +46,7 @@ function buscador(){
       `
 }
 buscador();
+
 const ingreso = document.querySelector('#ingreso');
 const btnbuscar = document.querySelector('.btnbuscar');
 const resultado = document.querySelector('#resultado');
@@ -70,7 +73,7 @@ const filtrar = () => {
 btnbuscar.addEventListener("click", filtrar)
 ingreso.addEventListener("keyup",filtrar)
 
-/*
+
 function crearCards(){
     productos.forEach(element=>{
         containerDiv.innerHTML += `<div class="card"> 
@@ -78,66 +81,66 @@ function crearCards(){
         <h4 class="card__titulo">${element.nombre}</h4>
         <p class="card__detalle">${element.detalle}</p>
         <p class="card__precio">$ ${element.precio}</p>
-        <button class="btnCarrito" id="btn-agregar ${element.id}" > COMPRAR </button>
+        <button class="btnCarrito" id="btn-agregar${element.id}"> COMPRAR</button>
         </div>
         `
     })
+  agregarFuncionAlBoton()
 }
+
+function agregarFuncionAlBoton(){
+  productos.forEach(element=>{
+      document.querySelector(`#btn-agregar${element.id}`).addEventListener("click",()=>{
+          agregarAlCarrito(element)
+      })
+  })
+}
+
+const carritoDiv = document.querySelector(".carrito");
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function agregarAlCarrito(element){
+  let existe = carrito.some(prod=>prod.id === element.id);
+if(existe===false){
+    element.cantidad = 1;
+    carrito.push(element);
+}
+else{
+    let prodFind = carrito.find(prod=> prod.id===element.id);
+    prodFind.cantidad++;
+}
+console.log(carrito);
+renderizarCarrito();
+}
+
+
+function renderizarCarrito(){
+  carritoDiv.innerHTML = "";
+  carrito.forEach(prod=>{
+      carritoDiv.innerHTML += `<div style="padding: 20px; background-color:green; border: 2px solid black;">
+      <h4>${prod.nombre}</h4>
+      <h3>CANTIDAD: ${prod.cantidad}</h3>
+      <p>$${prod.precio}</p>
+      <button class="btnCarrito" id="btn-borrar${prod.id}">Borrar</button>
+      <button class="btnCarrito" id="btn-borrarUnoSolo${prod.id}">-</button>
+      </div>`
+  })
+  localStorage.setItem("carrito",JSON.stringify(carrito))
+  borrarProducto()
+}
+
+function borrarProducto(){
+  carrito.forEach(producto=>{
+      document.querySelector(`#btn-borrar${producto.id}`).addEventListener("click",()=>{
+          let indice = carrito.findIndex(element=>element.id===producto.id);
+          carrito.splice(indice,1);
+          renderizarCarrito()
+      })
+  })
+}
+
+renderizarCarrito();
 crearCards();
-*/
-
-// const carritoDiv = document.querySelector(".carrito");
-// let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-
-// function agregarFuncionAlBoton(){
-//     productos.forEach(producto=>{
-//         document.querySelector(`#btn-agregar${producto.id}`).addEventListener("click",()=>{
-//             // agregarAlCarrito(producto)
-//             console.log("click");
-//         })
-//     })
-// }
-
-// function agregarAlCarrito(producto){
-// /* console.log(producto.id); */
-// let existe = carrito.some(prod=>prod.id === producto.id);
-// if(existe===false){
-//     producto.cantidad = 1;
-//     carrito.push(producto);
-// }
-// else{
-//     let prodFind = carrito.find(prod=> prod.id===producto.id);
-//     prodFind.cantidad++;
-// }
-// console.log(carrito);
-// renderizarCarrito();
-// }
-
-// function renderizarCarrito(){
-//     carritoDiv.innerHTML = "";
-//     carrito.forEach(prod=>{
-//         carritoDiv.innerHTML += `<div style="padding: 20px; background-color:green; border: 2px solid black;">
-//         <h4>${prod.nombre}</h4>
-//         <h3>CANTIDAD: ${prod.cantidad}</h3>
-//         <p>$${prod.precio}</p>
-//         <button class="btnCarrito" id="btn-borrar${prod.id}">Borrar</button>
-//         <button class="btnCarrito" id="btn-borrarUnoSolo${prod.id}">-</button>
-//         </div>`
-//     })
-//     localStorage.setItem("carrito",JSON.stringify(carrito))
-//     borrarProducto()
-// }
-
-// function borrarProducto(){
-//     carrito.forEach(producto=>{
-//         document.querySelector(`#btn-borrar${producto.id}`).addEventListener("click",()=>{
-//             let indice = carrito.findIndex(element=>element.id===producto.id);
-//             carrito.splice(indice,1);
-//             renderizarCarrito()
-//         })
-//     })
-// }
 
 
 function Producto(id, nombre, precio, detalle, img) {
