@@ -72,7 +72,6 @@ const filtrar = () => {
 btnbuscar.addEventListener("click", filtrar)
 ingreso.addEventListener("keyup",filtrar)
 
-
 function crearCards(){
     productos.forEach(element=>{
         containerDiv.innerHTML += `<div class="card"> 
