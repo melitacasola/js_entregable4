@@ -9,7 +9,7 @@
     text-decoration: none;
     list-style: none; 
 }
-  
+
 html {
     font-size: 62.5%;
     background-color: #95cbdb; 
@@ -201,7 +201,7 @@ h4{
     color: white;
     padding: 5px;
     border-radius: 20px;
-    width: 60%;
+    width: 30%;
     display: inline-block;
     justify-content: center;
     text-align: center;
