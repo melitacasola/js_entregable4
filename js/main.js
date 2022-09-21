@@ -147,15 +147,17 @@ let total = 0
 const elCarrito = document.querySelector('.totalCarrito');
 
 function compraTotal() {
-  total = carrito.reduce((acc, el) => acc + el.precio, 0);
-  console.log(total);
-  let div = document.createElement('div')
-  div.innerHTML =`<div class="card"> 
-  <p class="card__precio">TOTAL A PAGAR: $ ${total}</p>
-  <button class="btnCarrito" id ="verTotal">VER TOTAL </button>
-  </div>
-  `    
-  elCarrito.append(div);
+total = carrito.reduce((acc, el) => acc + el.precio, 0);
+console.log(total);
+// let div = document.createElement('div');
+elCarrito.innerHTML= "";
+elCarrito.innerHTML +=`<div class="card"> 
+<p class="card__precio">TOTAL A PAGAR: $ ${total}</p>
+<button class="btnCarrito" id ="verTotal">VER TOTAL </button>
+</div>
+`    
+// elCarrito.append(div);
+
 }
 
 compraTotal()
