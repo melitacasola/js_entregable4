@@ -1,11 +1,14 @@
 document.title = "PREENTREGA FINAL | Comisión 38035";
 
 const nombre = document.querySelector("#nombre"),
-  parrafo = document.getElementsByTagName("p"),
-  parrafoClases = document.getElementsByClassName("parrafo"),
+  celular = document.querySelector("#celular"),
+  correo = document.querySelector("#correo"),
+  consulta = document.querySelector("#consulta"),
+  checkbox = document.querySelector("#newsletter"),
   contenedor = document.getElementById("contenedor"),
-  input = document.getElementById("ingreso");
+  input = document.getElementById("ingreso"),
   id = document.querySelector("#id");
+
 
 const productos = [
   {id: 1, nombre: "Jersey Grafity", precio: 7800, detalle: "jersey grafity - negro - talles de xxs xs s m l xl xxl", img: "jersey_grafity.jpeg" },
@@ -97,6 +100,7 @@ function agregarFuncionAlBoton(){
 const carritoDiv = document.querySelector(".carrito");
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+
 function agregarAlCarrito(element){
   let existe = carrito.some(prod=>prod.id === element.id);
 if(existe===false){
@@ -107,7 +111,6 @@ else{
     let prodFind = carrito.find(prod=> prod.id===element.id);
     prodFind.cantidad++;
 }
-console.log(carrito);
 renderizarCarrito();
 }
 
@@ -143,7 +146,6 @@ crearCards();
 let total = 0
 const elCarrito = document.querySelector('.totalCarrito');
 
-
 function compraTotal() {
   total = carrito.reduce((acc, el) => acc + el.precio, 0);
   console.log(total);
@@ -155,9 +157,12 @@ function compraTotal() {
   `    
   elCarrito.append(div);
 }
-// const verTotal = document.querySelector('#verTotal');
-// verTotal.addEventListener("click", compraTotal())
+
 compraTotal()
+const verTotal= document.querySelector('#verTotal');
+
+verTotal.addEventListener("click",compraTotal)
+
 
 function Producto(id, nombre, precio, detalle, img) {
   this.id = id;
@@ -175,14 +180,45 @@ function cargarProducto(arr, valor) {
 // cargarProducto(productos, nuevoProducto);
 console.log(productos);
 
-
+/*
 const form = document.querySelector('form')
 form.addEventListener('submit',(e)=>{
   e.preventDefault()
   let formulario= e.target
-  console.log(e.target);
+  // console.log(e.target);
   console.log(formulario.children[0].value); 
   console.log(formulario.children[1].value); 
   console.log(formulario.children[2].value); 
   console.log(formulario.children[3].value); 
 })
+*/
+function guardar(valor) {
+  let usuario = {nombre: nombre.value, cel: celular.value, correo: correo.value, consulta: consulta.value};
+  if (valor === "sessionStorage") {
+    sessionStorage.setItem("usuario", JSON.stringify(usuario));
+  }
+  if (valor === "localStorage") {
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+  }
+  return usuario;
+}
+
+function recuperarDatos(datos) {
+  if (datos) {
+    nombre.value = datos.nombre;
+    celular.value = datos.celular;
+    correo.value = datos.correo;
+    consulta.value = datos.consulta;
+  }
+}
+
+recuperarDatos(JSON.parse(localStorage.getItem("usuario")));
+
+btn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (checkbox.checked) {
+    guardar("localStorage");
+  } else {
+    guardar("sessionStorage");
+  }
+});

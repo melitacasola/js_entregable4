@@ -63,10 +63,24 @@
             <div class="formulario">
                 <h2>INSCRIPCIONES - info</h2>
                 <form class="formulario__form" action="">
-                    <input type="text" placeholder="Nombre..." />
-                    <input type="number" placeholder="cel..." />
-                    <input type="email" placeholder="correo" />
-                    <textarea name="consulta" id="consulta" cols="35" rows="8.5" placeholder="Consulta..."></textarea>
+                    <div>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre..."/>
+                    </div>
+                    <div>
+                        <label for="cel">telefono de contacto:</label>
+                        <input type="number" id="celular" name="cel" placeholder="+549..."/>
+                    </div>
+                    <div>
+                        <label class="formulario__form--mod" for="correo">Correo electronico:</label>
+                        <input type="email" id="correo" name="correo" placeholder="Email"/>
+                    </div>
+                    <div>
+                        <label for="consulta">Ingrese un mensaje:</label>
+                    </div>
+                    <div> 
+                        <textarea name="consulta" id="consulta" cols="35" rows="8.5" placeholder="Consulta..."></textarea>
+                    </div>
                     <input type="submit" value="Enviar" />
                     <button type="reset">Limpar</button>
                     <input type="checkbox" id="newsletter" />
