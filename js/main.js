@@ -60,10 +60,16 @@ const filtrar = () => {
   for (let producto of productos) {
     let nombre = producto.nombre.toLowerCase();
       if (nombre.indexOf(texto) !== -1){
-        resultado.innerHTML += `
-          <li>${producto.nombre} - Valor: $${producto.precio}</li>
+        resultado.innerHTML += `<div class="card"> 
+        <img src="./assets/${producto.img}" alt=""/>
+        <h4 class="card__titulo">${producto.nombre}</h4>
+        <p class="card__detalle">${producto.detalle}</p>
+        <p class="card__precio">$ ${producto.precio}</p>
+        <button class="btnCarrito" id="btn-agregar${producto.id}"> COMPRAR</button>
+        </div>
         `
       }
+    agregarFuncionAlBoton()
   }
   if(resultado.innerHTML === ''){
     resultado.innerHTML += `
@@ -73,7 +79,7 @@ const filtrar = () => {
 }
 
 btnbuscar.addEventListener("click", filtrar)
-ingreso.addEventListener("keyup",filtrar)
+// ingreso.addEventListener("keyup",filtrar)
 
 function crearCards(){
     productos.forEach(element=>{
