@@ -174,6 +174,7 @@ h4{
     transform: translateY(15px);
     z-index: 0; 
 }
+
 .card__titulo{
     font-size: 20px;
     font-weight: bold;
@@ -222,6 +223,12 @@ h4{
     margin-bottom: 35px; 
 }
 .courses__grid1{
+    display: grid;
+    grid-template-columns: repeat(3, 5fr);
+    justify-content: space-around;
+    align-content: center;
+}
+.carrito{
     display: grid;
     grid-template-columns: repeat(3, 5fr);
     justify-content: space-around;

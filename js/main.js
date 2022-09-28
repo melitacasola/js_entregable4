@@ -11,15 +11,15 @@ const nombre = document.querySelector("#nombre"),
 
 
 const productos = [
-  {id: 1, nombre: "Jersey Grafity", precio: 7800, detalle: "jersey grafity - negro - talles de xxs xs s m l xl xxl", img: "jersey_grafity.jpeg" },
-  {id: 2, nombre: "Jersey Pro", precio: 7800, detalle: "jersey pro colores argetina - celeste y blanco", img: "jersey_pro.jpeg" },
-  {id: 3, nombre: "Jersey Yellor", precio: 7800, detalle: "jersey amarillo xs s m l xl", img: "jersey_yellow.jpeg"},
-  {id: 7, nombre: "Jersey Go Bike E", precio: 7800, detalle: "Jersey pro go bike, mas slim que otros productos, talles: xs s m l xl", img: "jersey_e.jpeg" },
-  {id: 8, nombre: "Jersey RyLe Checa", precio: 7800, detalle: "Jersey pro go bike, mas slim que otros productos, talles: xs s m l xl", img: "jersey_checa.jpeg" },
-  {id: 9, nombre: "Jersey Purple", precio: 7800, detalle: "Jersey pro go bike color purpura, mas slim que otros productos, talles: xxs xs s m l xl xxl", img: "jersey_purple.jpeg" },
-  {id: 4, nombre: "Conjunto Total Black", precio: 14000, detalle: "jersey black, con calza con badana hombre y mujer - total black - negro", img: "total_black.jpeg" },
-  {id: 5, nombre: "Casco SBK", precio: 6500, detalle: "casco SBK - color blanco rojo azul talle s - m- l - xl", img: "cascos.jpeg"},
-  {id: 6, nombre: "Medias", precio: 1100, detalle: "medias de ciclismo talles s - m - l - xl", img: "medias_bike.jpeg"},
+  {id: 1, nombre: "Jersey Grafity", precio: 7800, detalle: "jersey grafity - negro - talles de xxs xs s m l xl xxl", img: "image00008.png" },
+  {id: 2, nombre: "Jersey Pro", precio: 7800, detalle: "jersey pro colores argetina - celeste y blanco", img: "image00010.jpeg" },
+  {id: 3, nombre: "Jersey Go Bike E", precio: 7800, detalle: "Jersey pro go bike, mas slim que otros productos, talles: xs s m l xl", img: "image00001.jpeg" },
+  {id: 4, nombre: "Jersey RyLe Checa", precio: 7800, detalle: "Jersey pro go bike, mas slim que otros productos, talles: xs s m l xl", img: "image00015.png" },
+  {id: 5, nombre: "Jersey Purple", precio: 7800, detalle: "Jersey pro go bike color purpura, mas slim que otros productos, talles: xxs xs s m l xl xxl", img: "image00004.png" },
+  {id: 6, nombre: "Conjunto Total Black", precio: 14000, detalle: "jersey black, con calza con badana hombre y mujer - total black - negro", img: "total_black.jpeg" },
+  {id: 7, nombre: "Jersey Yellor", precio: 7800, detalle: "jersey amarillo xs s m l xl", img: "jersey_yellow.jpeg"},
+  {id: 8, nombre: "Casco SBK", precio: 6500, detalle: "casco SBK - color blanco rojo azul talle s - m- l - xl", img: "cascos.jpeg"},
+  {id: 9, nombre: "Medias", precio: 1100, detalle: "medias de ciclismo talles s - m - l - xl", img: "medias_bike.jpeg"},
 ];
 
 const containerDiv= document.querySelector('.courses__grid1');
@@ -95,17 +95,33 @@ function crearCards(){
   agregarFuncionAlBoton()
 }
 
+
 function agregarFuncionAlBoton(){
   productos.forEach(element=>{
       document.querySelector(`#btn-agregar${element.id}`).addEventListener("click",()=>{
-          agregarAlCarrito(element)
+          agregarAlCarrito(element);
+          Toastify({
+            text: "AGREGASTE PRODUCTOS AL CARRITO!",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #00b09b, #e54358)",
+              fontSize: "1rem",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+          
       })
   })
 }
 
+
 const carritoDiv = document.querySelector(".carrito");
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
 
 function agregarAlCarrito(element){
   let existe = carrito.some(prod=>prod.id === element.id);
@@ -124,10 +140,12 @@ renderizarCarrito();
 function renderizarCarrito(){
   carritoDiv.innerHTML = "";
   carrito.forEach(prod=>{
-      carritoDiv.innerHTML += `<div class="formulario__form">
-      <h4 class="card__titulo">${prod.nombre}</h4>
+      carritoDiv.innerHTML += `<div class="card">
+      <h2 class="card__titulo">${prod.nombre}</h2>
       <h3>CANTIDAD: ${prod.cantidad}</h3>
       <p class="card__precio">$${prod.precio}</p>
+      <p class="card__precio">Subtotal$${prod.precio * prod.cantidad}</p>
+      <button class="btnCarrito" id="btn-sumarUno${prod.id}"> Sumar Cantidad </button>
       <button class="btnCarrito" id="btn-borrar${prod.id}">Borrar Producto</button>
       <button class="btnCarrito" id="btn-borrarUnoSolo${prod.id}"> Restar Cantidad </button>
       </div>`
@@ -135,6 +153,7 @@ function renderizarCarrito(){
   localStorage.setItem("carrito",JSON.stringify(carrito))
   borrarProducto()
   borrarUno()
+  sumarUno()
 
 }
 
@@ -144,27 +163,79 @@ function borrarProducto(){
           let indice = carrito.findIndex(element=>element.id===producto.id);
           carrito.splice(indice,1);
           renderizarCarrito()
+          Toastify({
+            text: "ELIMINASTE EL PRODUCTO DEL CARRITO!",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #101118, #e54358)",
+              fontSize: "1rem",
+            },
+            onClick: function(){} 
+          }).showToast();
       })
   })
 }
+
 function borrarUno(){
   carrito.forEach(producto=>{
       document.querySelector(`#btn-borrarUnoSolo${producto.id}`).addEventListener("click",()=>{
           if(producto.cantidad > 1){
             let prodFind = carrito.find(prod=> prod.id===producto.id);
             prodFind.cantidad--
-          
           renderizarCarrito()
           }
           else {
             let indice = carrito.findIndex(prod=> prod.id===producto.id);
             carrito.splice(indice,1);
             renderizarCarrito()  
-          } 
+          }
+          Toastify({
+            text: "BORRASTE PRODUCTOS DEL CARRITO!",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #00b09b, #e54358)",
+              fontSize: "1rem",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
       })
   })
 }
-
+function sumarUno(){
+  carrito.forEach(producto=>{
+      document.querySelector(`#btn-sumarUno${producto.id}`).addEventListener("click",()=>{
+          if(producto.cantidad >= 1){
+            let prodFind = carrito.find(prod=> prod.id===producto.id);
+            prodFind.cantidad++
+          renderizarCarrito()
+          Toastify({
+            text: "AGREGASTE PRODUCTOS AL CARRITO!",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top", 
+            position: "right", 
+            stopOnFocus: true,
+            style: {
+              background: "linear-gradient(to right, #00b09b, #e54358)",
+              fontSize: "1rem",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+          }
+      })
+  })
+}
 
 renderizarCarrito();
 crearCards();
@@ -241,8 +312,9 @@ function recuperarDatos(datos) {
 
 recuperarDatos(JSON.parse(localStorage.getItem("usuario")));
 
-btn.addEventListener("click", (e) => {
-  e.preventDefault();
+const form = document.querySelector('form')
+form.addEventListener('submit',(e)=>{
+  e.preventDefault()
   if (checkbox.checked) {
     guardar("localStorage");
   } else {
