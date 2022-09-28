@@ -128,12 +128,14 @@ function renderizarCarrito(){
       <h4 class="card__titulo">${prod.nombre}</h4>
       <h3>CANTIDAD: ${prod.cantidad}</h3>
       <p class="card__precio">$${prod.precio}</p>
-      <button class="btnCarrito" id="btn-borrar${prod.id}">Borrar</button>
-      <button class="btnCarrito" id="btn-borrarUnoSolo${prod.id}">-</button>
+      <button class="btnCarrito" id="btn-borrar${prod.id}">Borrar Producto</button>
+      <button class="btnCarrito" id="btn-borrarUnoSolo${prod.id}"> Restar Cantidad </button>
       </div>`
   })
   localStorage.setItem("carrito",JSON.stringify(carrito))
   borrarProducto()
+  borrarUno()
+
 }
 
 function borrarProducto(){
@@ -145,6 +147,24 @@ function borrarProducto(){
       })
   })
 }
+function borrarUno(){
+  carrito.forEach(producto=>{
+      document.querySelector(`#btn-borrarUnoSolo${producto.id}`).addEventListener("click",()=>{
+          if(producto.cantidad > 1){
+            let prodFind = carrito.find(prod=> prod.id===producto.id);
+            prodFind.cantidad--
+          
+          renderizarCarrito()
+          }
+          else {
+            let indice = carrito.findIndex(prod=> prod.id===producto.id);
+            carrito.splice(indice,1);
+            renderizarCarrito()  
+          } 
+      })
+  })
+}
+
 
 renderizarCarrito();
 crearCards();
@@ -153,7 +173,7 @@ let total = 0
 const elCarrito = document.querySelector('.totalCarrito');
 
 function compraTotal() {
-total = carrito.reduce((acc, el) => acc + el.precio, 0);
+total = carrito.reduce((acc, el) => acc + el.precio *el.cantidad, 0);
 console.log(total);
 // let div = document.createElement('div');
 elCarrito.innerHTML= "";
@@ -163,13 +183,12 @@ elCarrito.innerHTML +=`<div class="card">
 </div>
 `    
 // elCarrito.append(div);
-
+const verTotal= document.querySelector('#verTotal');
+verTotal.addEventListener("click",compraTotal)
 }
 
 compraTotal()
-const verTotal= document.querySelector('#verTotal');
 
-verTotal.addEventListener("click",compraTotal)
 
 
 function Producto(id, nombre, precio, detalle, img) {
