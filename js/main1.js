@@ -16,13 +16,7 @@ const containerDiv= document.querySelector('.courses__grid1'),
     btnbuscar = document.querySelector('.btnbuscar'),
     resultado = document.querySelector('#resultado');
 
-// const respuesta = async() =>{
-//     const response = await fetch('./data/api.json');
-//     const data = await response.json();
-      
-//     crearCards(data);
-// }  
-// respuesta()
+
 async function fetchApi() {
   try {
   const URL = '/data/api.json';
@@ -30,14 +24,72 @@ async function fetchApi() {
   const data = await response.json();
   console.log(data); 
 
-  crearCards(data)
+  crearCards(data);
+  buscador(data);
+  // btnbuscar.addEventListener("click", filtrarPorNombre)
+  btnbuscar.addEventListener('click',()=>{
+    const filtro = filtrarPorNombre(data)
+    crearCards(filtro);
+  })
 
   } catch (error){
     console.log(error);
   }
 }
+
 fetchApi();
-  
+
+function buscador(){
+  search.innerHTML += `<div class="busqueda"> 
+  <input type="text" name="" id="ingreso"/>
+  <button class="btnbuscar">Buscar</button>
+  <ul id= "resultado">
+  </ul>
+  </div>
+  `
+}
+
+// function buscador(){
+//   console.log('clicc');
+// }
+
+function filtrarPorNombre(array){
+  let nombre = ingreso.value;
+  let nombreC = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+  if (!nombre) {
+    return array;
+  } else {
+    return array.filter((e) => e.name.includes(nombreC));
+  }
+}
+
+
+// const filtrar = () => {
+//   resultado.innerHTML = '';
+//   const texto = ingreso.value.toLowerCase();
+//   for (let producto of productos) {
+//     let nombre = producto.nombre.toLowerCase();
+//       if (nombre.indexOf(texto) !== -1){
+//         resultado.innerHTML += `<div class="card"> 
+//         <img src="./assets/${producto.img}" alt=""/>
+//         <h4 class="card__titulo">${producto.nombre}</h4>
+//         <p class="card__detalle">${producto.detalle}</p>
+//         <p class="card__precio">$ ${producto.precio}</p>
+//         <button class="btnCarrito" id="btn-agregar${producto.id}"> COMPRAR</button>
+//         </div>
+//         `
+//       }
+//     agregarFuncionAlBoton()
+//   }
+//   if(resultado.innerHTML === ''){
+//     resultado.innerHTML += `
+//     <li>Producto no encontrado...</li>
+//     `
+//   }
+// }
+
+btnbuscar.addEventListener("click", filtrar)
+
 function crearCards(arr){
   containerDiv.innerHTML ="";
   arr.forEach((element) =>{
