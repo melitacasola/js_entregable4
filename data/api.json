@@ -1,0 +1,65 @@
+[
+  {
+     "id":1,
+     "nombre":"Jersey Grafity",
+     "precio":7800,
+     "detalle":"jersey grafity - negro - talles de xxs xs s m l xl xxl",
+     "img":"image00008.png"
+  },
+  {
+     "id":2,
+     "nombre":"Jersey Pro",
+     "precio":7800,
+     "detalle":"jersey pro colores argetina - celeste y blanco",
+     "img":"image00010.jpeg"
+  },
+  {
+     "id":3,
+     "nombre":"Jersey Go Bike E",
+     "precio":7800,
+     "detalle":"Jersey pro go bike, mas slim que otros productos, talles: xs s m l xl",
+     "img":"image00001.jpeg"
+  },
+  {
+     "id":4,
+     "nombre":"Jersey RyLe Checa",
+     "precio":7800,
+     "detalle":"Jersey pro go bike, mas slim que otros productos, talles: xs s m l xl",
+     "img":"image00015.png"
+  },
+  {
+     "id":5,
+     "nombre":"Jersey Purple",
+     "precio":7800,
+     "detalle":"Jersey pro go bike color purpura, mas slim que otros productos, talles: xxs xs s m l xl xxl",
+     "img":"image00004.png"
+  },
+  {
+     "id":6,
+     "nombre":"Conjunto Total Black",
+     "precio":14000,
+     "detalle":"jersey black, con calza con badana hombre y mujer - total black - negro",
+     "img":"total_black.jpeg"
+  },
+  {
+     "id":7,
+     "nombre":"Jersey Yellor",
+     "precio":7800,
+     "detalle":"jersey amarillo xs s m l xl",
+     "img":"jersey_yellow.jpeg"
+  },
+  {
+     "id":8,
+     "nombre":"Casco SBK",
+     "precio":6500,
+     "detalle":"casco SBK - color blanco rojo azul talle s - m- l - xl",
+     "img":"cascos.jpeg"
+  },
+  {
+     "id":9,
+     "nombre":"Medias",
+     "precio":1100,
+     "detalle":"medias de ciclismo talles s - m - l - xl",
+     "img":"medias_bike.jpeg"
+  }
+]

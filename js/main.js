@@ -1,4 +1,4 @@
-document.title = "PREENTREGA FINAL | Comisión 38035";
+document.title = "ENTREGA FINAL | Comisión 38035";
 
 const nombre = document.querySelector("#nombre"),
   celular = document.querySelector("#celular"),
